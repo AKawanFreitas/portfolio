@@ -50,7 +50,13 @@ function ProjectRow({ project, open, onToggle }) {
         <span className={styles.title}>{project.title}</span>
         <span className={styles.plus} aria-hidden="true" />
       </button>
-      <div id={id} className={styles.panel} role="region" aria-label={project.title}>
+      <div
+        id={id}
+        className={styles.panel}
+        role="region"
+        aria-label={project.title}
+        inert={open ? undefined : ''}
+      >
         <div className={styles.panelInner}>
           <p className={styles.desc}>{project.description}</p>
           {project.todo && <p className={styles.todo}>TODO: {project.todo}</p>}
