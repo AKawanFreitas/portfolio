@@ -11,19 +11,28 @@ export default function About() {
         <div className={styles.grid}>
           <div className={styles.text}>
             <p>
-              Sou <strong>Antonio Kawan</strong>, graduando em Ciência da Computação apaixonado 
-              por entender como a tecnologia funciona de verdade.
+              Sou <strong>Antonio Kawan</strong>, bacharel em Ciência da Computação pela UFC e
+              desenvolvedor júnior na <strong>Starke Vision</strong>, empresa de IA, automação e
+              sistemas sob medida em Araripina, Pernambuco.
             </p>
             <p>
-              Tenho experiência em desenvolvimento de software, criando soluções automatizadas 
-              que otimizam processos, reduzem retrabalho e aumentam a eficiência. Trabalho com 
-              código limpo, boas práticas e sempre busco desenvolver sistemas que unam lógica, criatividade e impacto real.
+              Trabalho com desenvolvimento full stack e automações para reduzir retrabalho e
+              colocar processos reais para funcionar, do atendimento no WhatsApp aos sistemas de
+              chão de fábrica.
             </p>
-           
+
             <div className={styles.info}>
               <div className={styles.infoItem}>
                 <span className={styles.infoLabel}>Localização</span>
                 <span className={styles.infoValue}>Araripina, Pernambuco</span>
+              </div>
+              <div className={styles.infoItem}>
+                <span className={styles.infoLabel}>Formação</span>
+                <span className={styles.infoValue}>Bacharel em Ciência da Computação, UFC</span>
+              </div>
+              <div className={styles.infoItem}>
+                <span className={styles.infoLabel}>Atuação</span>
+                <span className={styles.infoValue}>Desenvolvedor júnior, Starke Vision</span>
               </div>
               <div className={styles.infoItem}>
                 <span className={styles.infoLabel}>Disponibilidade</span>
@@ -31,28 +40,12 @@ export default function About() {
               </div>
               <div className={styles.infoItem}>
                 <span className={styles.infoLabel}>Foco</span>
-                <span className={styles.infoValue}>Full Stack & Automations</span>
+                <span className={styles.infoValue}>Full Stack &amp; Automações</span>
               </div>
             </div>
-          </div>
-
-          <div className={styles.stats}>
-            {STATS.map(({ number, label }) => (
-              <div key={label} className={styles.statCard}>
-                <span className={styles.statNumber}>{number}</span>
-                <span className={styles.statLabel}>{label}</span>
-              </div>
-            ))}
           </div>
         </div>
       </div>
     </section>
   )
 }
-
-const STATS = [
-  { number: '4+', label: 'Projetos Concluídos' },
-  { number: '3+', label: 'Anos de Experiência' },
-  { number: '5+', label: 'Tecnologias Dominadas' },
-  { number: '100%', label: 'Dedicação' },
-]

@@ -12,7 +12,7 @@ export default function Footer() {
         </a>
 
         <p className={styles.copy}>
-          &copy; {year} — Portifólio - Antonio Kawan
+          &copy; {year} kawan.dev, Portfólio de Antonio Kawan
         </p>
 
         <div className={styles.socials}>

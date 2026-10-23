@@ -11,10 +11,10 @@ export default function Hero() {
         <div className={styles.left}>
           <h1 className={styles.name}>Antonio<br />Kawan</h1>
           <div className={styles.divider} />
-          <p className={styles.role}>Computer Scientist</p>
+          <p className={styles.role}>Desenvolvedor Full Stack &amp; Automações</p>
           <p className={styles.description}>
-            Apaixonado por tecnologia, automações e soluções elegantes.
-            Construo software com propósito, performance e atenção aos detalhes.
+            Bacharel em Ciência da Computação pela UFC e desenvolvedor júnior na Starke Vision,
+            onde trabalho com IA, automação e sistemas sob medida.
           </p>
 
           <a href="/Antonio Kawan - Currículo.pdf" download className={styles.cvLink}>
