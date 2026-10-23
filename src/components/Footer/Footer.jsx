@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={`${styles.inner} container`}>
         <a href="#hero" className={styles.logo}>
-          <img src="/brand/lockup-horizontal-dark.png" alt="Antonio Kawan — kawan.dev" className={styles.logoImg} />
+          <img src="/brand/lockup-horizontal-dark.png" alt="Antonio Kawan, kawan.dev" className={styles.logoImg} />
         </a>
 
         <p className={styles.copy}>
