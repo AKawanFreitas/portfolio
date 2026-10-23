@@ -13,8 +13,8 @@
   --text-secondary: #a3a3a3;
   --text-muted: #737373;
 
-  --font-display: 'Cinzel', serif;
-  --font-body: 'Raleway', sans-serif;
+  --font-display: 'JetBrains Mono', ui-monospace, monospace;
+  --font-body: 'JetBrains Mono', ui-monospace, monospace;
 
   --transition: 0.3s ease;
   --radius: 8px;
@@ -38,7 +38,8 @@ body {
   color: var(--text-primary);
   font-family: var(--font-body);
   font-weight: 400;
-  line-height: 1.7;
+  line-height: 1.75;
+  font-size: 0.95rem;
   overflow-x: hidden;
 }
 
