@@ -5,7 +5,7 @@ export default function About() {
   return (
     <section id="sobre" className={`${styles.about} section`}>
       <div className="container">
-        <h2 className="section-title">Sobre mim</h2>
+        <h2 className="section-title"><span>//</span> sobre</h2>
         <div className="section-rule" />
 
         <div className={styles.grid}>

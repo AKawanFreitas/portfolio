@@ -108,8 +108,12 @@ button {
   font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 600;
   color: var(--text-primary);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.section-title span {
+  color: var(--blue);
+  margin-right: 0.4ch;
 }
 
 /* ===== FADE IN ANIMATION ===== */

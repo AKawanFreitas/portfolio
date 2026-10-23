@@ -49,8 +49,7 @@ export default function Hero() {
         <div className={styles.right}>
           <div className={styles.logoWrapper}>
             <img src="/brand/wordmark-dark.png" alt="kawan.dev" className={styles.logo} />
-            <div className={styles.ring} aria-hidden="true" />
-            <div className={styles.ringReverse} aria-hidden="true" />
+            <p className={styles.tagline}><span>//</span> building things that work</p>
           </div>
         </div>
       </div>

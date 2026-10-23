@@ -64,7 +64,7 @@ export default function Projects() {
   return (
     <section id="projetos" className={`${styles.projects} section`}>
       <div className="container">
-        <h2 className="section-title">Projetos</h2>
+        <h2 className="section-title"><span>//</span> projetos</h2>
         <div className="section-rule" />
 
         <div className={styles.featuredGrid}>

@@ -35,7 +35,7 @@ export default function Skills() {
   return (
     <section id="habilidades" className={`${styles.skills} section`}>
       <div className="container">
-        <h2 className="section-title">Habilidades</h2>
+        <h2 className="section-title"><span>//</span> habilidades</h2>
         <div className="section-rule" />
 
         <div className={styles.grid}>

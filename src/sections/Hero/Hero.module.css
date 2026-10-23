@@ -184,7 +184,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  perspective: 800px;
 }
 
 .logo {
@@ -196,60 +195,21 @@
   height: auto;
   object-fit: contain;
   filter: drop-shadow(0 0 30px rgba(13, 57, 249, 0.4));
-  animation: pulse-blue 4s ease-in-out infinite;
   z-index: 1;
 }
 
-.ring {
+.tagline {
   position: absolute;
-  inset: 0;
-  border: 1px solid var(--blue-border);
-  border-radius: 50%;
-  animation: rotate 20s linear infinite;
+  top: calc(50% + 3rem);
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
 }
 
-.ringReverse {
-  position: absolute;
-  inset: 0;
-  border: 1px solid var(--blue-border);
-  border-radius: 50%;
-  animation: rotateReverse 15s linear infinite;
-}
-
-.ringOrbitB {
-  position: absolute;
-  inset: 0;
-  border: 1px solid var(--blue-border);
-  border-radius: 50%;
-  animation: orbitB 18s linear infinite;
-}
-
-.ringOrbitC {
-  position: absolute;
-  inset: 0;
-  border: 1px solid var(--blue-border);
-  border-radius: 50%;
-  animation: orbitC 23s linear infinite;
-}
-
-@keyframes rotate {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-
-@keyframes rotateReverse {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(-360deg); }
-}
-
-@keyframes orbitB {
-  from { transform: rotateY(60deg) rotateZ(0deg); }
-  to   { transform: rotateY(60deg) rotateZ(360deg); }
-}
-
-@keyframes orbitC {
-  from { transform: rotateY(-60deg) rotateZ(0deg); }
-  to   { transform: rotateY(-60deg) rotateZ(360deg); }
+.tagline span {
+  color: var(--blue-light);
 }
 
 /* Scroll indicator */
@@ -297,6 +257,7 @@
   .right      { order: -1; margin-top: 1.5rem; }
   .logoWrapper { width: 200px; height: 200px; }
   .logo       { width: 170px; height: auto; }
+  .tagline    { font-size: 0.7rem; }
 
   .cvLink {
     display: flex;
