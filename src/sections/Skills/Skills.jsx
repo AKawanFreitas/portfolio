@@ -1,10 +1,10 @@
 import styles from './Skills.module.css'
 import {
   SiFigma, SiJavascript, SiTypescript, SiNodedotjs, SiReact, SiPython,
-  SiN8N, SiNotion, SiHtml5, SiCss, SiRedis, SiTailwindcss,
+  SiN8N, SiHtml5, SiCss, SiRedis, SiTailwindcss,
   SiWordpress, SiGit, SiGithub, SiChatwoot, SiWhatsapp,
+  SiNextdotjs, SiNestjs, SiPostgresql, SiDocker,
 } from 'react-icons/si'
-import { BsTerminalFill } from 'react-icons/bs'
 import { MdBrush } from 'react-icons/md'
 import { TbServer } from 'react-icons/tb'
 
@@ -15,20 +15,22 @@ const SKILLS = [
   { name: 'TypeScript',                  Icon: SiTypescript },
   { name: 'React.js',                    Icon: SiReact },
   { name: 'Tailwind CSS',                Icon: SiTailwindcss },
+  { name: 'Next.js',                     Icon: SiNextdotjs },
   { name: 'Node.js',                     Icon: SiNodedotjs },
+  { name: 'NestJS',                      Icon: SiNestjs },
   { name: 'Python',                      Icon: SiPython },
+  { name: 'PostgreSQL',                  Icon: SiPostgresql },
   { name: 'Redis',                       Icon: SiRedis },
+  { name: 'Docker',                      Icon: SiDocker },
   { name: 'Git',                         Icon: SiGit },
   { name: 'GitHub',                      Icon: SiGithub },
   { name: 'Figma',                       Icon: SiFigma },
   { name: 'UI/UX',                       Icon: MdBrush },
   { name: 'WordPress',                   Icon: SiWordpress },
-  { name: 'Prompt',                      Icon: BsTerminalFill },
   { name: 'Chatwoot',                    Icon: SiChatwoot },
   { name: 'Evolution API',               Icon: SiWhatsapp },
   { name: 'Easypanel',                   Icon: TbServer },
   { name: 'N8N',                         Icon: SiN8N },
-  { name: 'Ferramentas organizacionais', Icon: SiNotion },
 ]
 
 export default function Skills() {
