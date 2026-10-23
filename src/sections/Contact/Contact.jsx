@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { BrandIcon, MailIcon } from '../../components/Icons'
 import styles from './Contact.module.css'
 
@@ -11,9 +11,21 @@ const LINKS = [
   { label: 'WhatsApp', value: '+55 (87) 99139-3066', href: 'https://wa.me/5587991393066', icon: 'whatsapp' },
 ]
 
+const clock = new Intl.DateTimeFormat('pt-BR', { timeZone: 'America/Recife', hour: '2-digit', minute: '2-digit' })
+
+function useLocalTime() {
+  const [time, setTime] = useState(() => clock.format(new Date()))
+  useEffect(() => {
+    const id = setInterval(() => setTime(clock.format(new Date())), 15000)
+    return () => clearInterval(id)
+  }, [])
+  return time
+}
+
 export default function Contact() {
   const [copied, setCopied] = useState(false)
   const timer = useRef(0)
+  const time = useLocalTime()
 
   const copy = async () => {
     try {
@@ -34,7 +46,7 @@ export default function Contact() {
 
         <p className={styles.intro}>
           Estou aberto a novas oportunidades, colaborações ou apenas uma boa conversa sobre
-          tecnologia.
+          tecnologia. Em Araripina agora são <time className={styles.time}>{time}</time>.
         </p>
 
         <button

@@ -69,3 +69,5 @@
   .item { grid-template-columns: 24px 1fr; }
   .value { grid-column: 2; text-align: left; }
 }
+
+.time { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
