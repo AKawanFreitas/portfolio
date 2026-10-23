@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--navy-card);
+  background: var(--bg-card);
   border: 1px solid var(--blue-border);
   border-radius: var(--radius);
   color: var(--blue-light);

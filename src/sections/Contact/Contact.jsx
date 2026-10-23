@@ -38,7 +38,7 @@ export default function Contact() {
     <section id="contato" className={`${styles.contact} section`}>
       <div className="container">
         <h2 className="section-title">Contato</h2>
-        <div className="gold-line" />
+        <div className="section-rule" />
 
         <p className={styles.intro}>
           Estou aberto a novas oportunidades, colaborações ou apenas uma boa conversa

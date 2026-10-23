@@ -15,7 +15,7 @@ function ColoredText({ text }) {
   return (
     <>
       {text.split('').map((char, i) => (
-        <span key={i} className={/[AK]/.test(char) ? styles.charGold : styles.charNormal}>
+        <span key={i} className={/[AK]/.test(char) ? styles.charAccent : styles.charNormal}>
           {char}
         </span>
       ))}

@@ -65,7 +65,7 @@
 
 /* Cards */
 .card {
-  background: var(--navy-card);
+  background: var(--bg-card);
   border: 1px solid var(--blue-border);
   border-radius: var(--radius);
   padding: 1.75rem;
@@ -77,7 +77,7 @@
 
 .card:hover {
   border-color: var(--blue-light);
-  background: var(--navy-hover);
+  background: var(--bg-hover);
   transform: translateY(-4px);
 }
 

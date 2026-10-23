@@ -66,7 +66,7 @@
 }
 
 .statCard {
-  background: var(--navy-card);
+  background: var(--bg-card);
   border: 1px solid var(--blue-border);
   border-radius: var(--radius);
   padding: 1.5rem 1rem;
@@ -76,7 +76,7 @@
 
 .statCard:hover {
   border-color: var(--blue-light);
-  background: var(--navy-hover);
+  background: var(--bg-hover);
 }
 
 .statNumber {

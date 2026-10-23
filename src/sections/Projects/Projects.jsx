@@ -65,7 +65,7 @@ export default function Projects() {
     <section id="projetos" className={`${styles.projects} section`}>
       <div className="container">
         <h2 className="section-title">Projetos</h2>
-        <div className="gold-line" />
+        <div className="section-rule" />
 
         <div className={styles.featuredGrid}>
           {featured.map(project => (

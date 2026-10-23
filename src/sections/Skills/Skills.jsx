@@ -36,7 +36,7 @@ export default function Skills() {
     <section id="habilidades" className={`${styles.skills} section`}>
       <div className="container">
         <h2 className="section-title">Habilidades</h2>
-        <div className="gold-line" />
+        <div className="section-rule" />
 
         <div className={styles.grid}>
           {SKILLS.map(({ name, Icon }) => (

@@ -5,13 +5,13 @@
   --blue-light: #6f8cff;
   --blue-dim: rgba(13, 57, 249, 0.15);
   --blue-border: rgba(13, 57, 249, 0.3);
-  --navy: #0d1120;
-  --navy-mid: #111827;
-  --navy-card: #151d2e;
-  --navy-hover: #1a2540;
-  --text-primary: #f0e6cc;
-  --text-secondary: #9ca3af;
-  --text-muted: #6b7280;
+  --bg: #000000;
+  --bg-mid: #0a0a0a;
+  --bg-card: #0f0f0f;
+  --bg-hover: #171717;
+  --text-primary: #f5f5f5;
+  --text-secondary: #a3a3a3;
+  --text-muted: #737373;
 
   --font-display: 'Cinzel', serif;
   --font-body: 'Raleway', sans-serif;
@@ -34,7 +34,7 @@ html {
 }
 
 body {
-  background-color: var(--navy);
+  background-color: var(--bg);
   color: var(--text-primary);
   font-family: var(--font-body);
   font-weight: 400;
@@ -68,7 +68,7 @@ button {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--navy);
+  background: var(--bg);
 }
 ::-webkit-scrollbar-thumb {
   background: var(--blue-border);
@@ -95,7 +95,7 @@ button {
   padding: 6rem 0;
 }
 
-.gold-line {
+.section-rule {
   width: 60px;
   height: 2px;
   background: linear-gradient(90deg, var(--blue), transparent);
@@ -128,7 +128,7 @@ button {
   to { opacity: 1; }
 }
 
-@keyframes pulse-gold {
+@keyframes pulse-blue {
   0%, 100% { box-shadow: 0 0 0 0 rgba(13, 57, 249, 0.4); }
   50% { box-shadow: 0 0 20px 6px rgba(13, 57, 249, 0.1); }
 }
