@@ -17,7 +17,7 @@
   background: rgba(13, 17, 32, 0.95);
   backdrop-filter: blur(12px);
   padding: 0.75rem 0;
-  border-bottom-color: var(--gold-border);
+  border-bottom-color: var(--blue-border);
 }
 
 .nav {
@@ -36,7 +36,7 @@
   width: 46px;
   height: 46px;
   object-fit: contain;
-  filter: drop-shadow(0 0 6px rgba(232, 160, 32, 0.5));
+  filter: drop-shadow(0 0 6px rgba(13, 57, 249, 0.5));
 }
 
 .logoText {
@@ -49,7 +49,7 @@
 }
 
 .charGold {
-  color: var(--gold);
+  color: var(--blue-light);
 }
 
 .charNormal {
@@ -89,13 +89,13 @@
   left: 0;
   width: 0;
   height: 1px;
-  background: var(--gold);
+  background: var(--blue);
   transition: width var(--transition);
 }
 
 .link:hover,
 .link.active {
-  color: var(--gold);
+  color: var(--blue-light);
 }
 
 .link:hover::after,
@@ -108,16 +108,16 @@
   font-size: 0.75rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--gold);
-  border: 1px solid var(--gold-border);
+  color: var(--blue-light);
+  border: 1px solid var(--blue-border);
   padding: 0.5rem 1.2rem;
   border-radius: var(--radius);
   transition: background var(--transition), border-color var(--transition);
 }
 
 .cvBtn:hover {
-  background: var(--gold-dim);
-  border-color: var(--gold);
+  background: var(--blue-dim);
+  border-color: var(--blue-light);
 }
 
 /* Burger */
@@ -132,7 +132,7 @@
   display: block;
   width: 24px;
   height: 2px;
-  background: var(--gold);
+  background: var(--blue);
   border-radius: 2px;
   transition: transform var(--transition), opacity var(--transition);
 }

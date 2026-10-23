@@ -1,12 +1,12 @@
 .projects {
-  border-top: 1px solid var(--gold-border);
+  border-top: 1px solid var(--blue-border);
 }
 
 .label {
   font-size: 0.8rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--blue-light);
   margin-bottom: 0.5rem;
 }
 
@@ -27,7 +27,7 @@
   justify-content: space-between;
   margin-bottom: 1.5rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid var(--gold-border);
+  border-bottom: 1px solid var(--blue-border);
 }
 
 .allTitle {
@@ -44,16 +44,16 @@
   font-size: 0.75rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--gold);
-  border: 1px solid var(--gold-border);
+  color: var(--blue-light);
+  border: 1px solid var(--blue-border);
   padding: 0.45rem 1.2rem;
   border-radius: var(--radius);
   transition: background var(--transition), border-color var(--transition), transform var(--transition);
 }
 
 .toggleBtn:hover {
-  background: var(--gold-dim);
-  border-color: var(--gold);
+  background: var(--blue-dim);
+  border-color: var(--blue-light);
   transform: translateY(-2px);
 }
 
@@ -66,7 +66,7 @@
 /* Cards */
 .card {
   background: var(--navy-card);
-  border: 1px solid var(--gold-border);
+  border: 1px solid var(--blue-border);
   border-radius: var(--radius);
   padding: 1.75rem;
   display: flex;
@@ -76,17 +76,17 @@
 }
 
 .card:hover {
-  border-color: var(--gold);
+  border-color: var(--blue-light);
   background: var(--navy-hover);
   transform: translateY(-4px);
 }
 
 .cardFeatured {
-  border-color: rgba(232, 160, 32, 0.25);
+  border-color: rgba(13, 57, 249, 0.25);
 }
 
 .cardFeatured:hover {
-  box-shadow: 0 8px 32px rgba(232, 160, 32, 0.08);
+  box-shadow: 0 8px 32px rgba(13, 57, 249, 0.08);
 }
 
 .cardTop {
@@ -96,7 +96,7 @@
 }
 
 .cardIcon {
-  color: var(--gold);
+  color: var(--blue-light);
   opacity: 0.7;
 }
 
@@ -111,7 +111,7 @@
 }
 
 .cardLinks a:hover {
-  color: var(--gold);
+  color: var(--blue-light);
   transform: translateY(-2px);
 }
 
@@ -142,9 +142,9 @@
   font-size: 0.72rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--gold);
-  background: var(--gold-dim);
-  border: 1px solid var(--gold-border);
+  color: var(--blue-light);
+  background: var(--blue-dim);
+  border: 1px solid var(--blue-border);
   padding: 0.25rem 0.65rem;
   border-radius: 4px;
 }

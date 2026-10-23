@@ -13,8 +13,8 @@
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(232, 160, 32, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(232, 160, 32, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(13, 57, 249, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(13, 57, 249, 0.04) 1px, transparent 1px);
   background-size: 60px 60px;
   pointer-events: none;
 }
@@ -26,7 +26,7 @@
   transform: translate(-50%, -50%);
   width: 600px;
   height: 600px;
-  background: radial-gradient(ellipse at center, rgba(232, 160, 32, 0.08) 0%, transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(13, 57, 249, 0.08) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -49,7 +49,7 @@
   font-size: 0.9rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--blue-light);
   margin-bottom: 0.5rem;
 }
 
@@ -65,7 +65,7 @@
 .divider {
   width: 50px;
   height: 2px;
-  background: var(--gold);
+  background: var(--blue);
   margin: 1.5rem 0;
 }
 
@@ -74,7 +74,7 @@
   font-size: 1rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--gold-light);
+  color: var(--blue-light);
   margin-bottom: 1.5rem;
 }
 
@@ -96,8 +96,8 @@
   font-size: 0.75rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--gold);
-  border: 1px solid var(--gold-border);
+  color: var(--blue-light);
+  border: 1px solid var(--blue-border);
   padding: 0.5rem 1.1rem;
   border-radius: var(--radius);
   margin-bottom: 1.25rem;
@@ -105,8 +105,8 @@
 }
 
 .cvLink:hover {
-  border-color: var(--gold);
-  background: var(--gold-dim);
+  border-color: var(--blue-light);
+  background: var(--blue-dim);
 }
 
 /* CTA buttons */
@@ -122,8 +122,8 @@
   font-size: 0.8rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  background: var(--gold);
-  color: var(--navy);
+  background: var(--blue);
+  color: #fff;
   padding: 0.75rem 1.75rem;
   border-radius: var(--radius);
   font-weight: 700;
@@ -131,7 +131,7 @@
 }
 
 .btnPrimary:hover {
-  background: var(--gold-light);
+  background: var(--blue-hover);
   transform: translateY(-2px);
 }
 
@@ -140,16 +140,16 @@
   font-size: 0.8rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--gold);
-  border: 1px solid var(--gold-border);
+  color: var(--blue-light);
+  border: 1px solid var(--blue-border);
   padding: 0.75rem 1.75rem;
   border-radius: var(--radius);
   transition: background var(--transition), border-color var(--transition), transform var(--transition);
 }
 
 .btnSecondary:hover {
-  background: var(--gold-dim);
-  border-color: var(--gold);
+  background: var(--blue-dim);
+  border-color: var(--blue-light);
   transform: translateY(-2px);
 }
 
@@ -165,7 +165,7 @@
 }
 
 .socials a:hover {
-  color: var(--gold);
+  color: var(--blue-light);
   transform: translateY(-3px);
 }
 
@@ -195,7 +195,7 @@
   width: 400px;
   height: 300px;
   object-fit: contain;
-  filter: drop-shadow(0 0 30px rgba(232, 160, 32, 0.4));
+  filter: drop-shadow(0 0 30px rgba(13, 57, 249, 0.4));
   animation: pulse-gold 4s ease-in-out infinite;
   z-index: 1;
 }
@@ -203,7 +203,7 @@
 .ring {
   position: absolute;
   inset: 0;
-  border: 1px solid var(--gold-border);
+  border: 1px solid var(--blue-border);
   border-radius: 50%;
   animation: rotate 20s linear infinite;
 }
@@ -211,7 +211,7 @@
 .ringReverse {
   position: absolute;
   inset: 0;
-  border: 1px solid var(--gold-border);
+  border: 1px solid var(--blue-border);
   border-radius: 50%;
   animation: rotateReverse 15s linear infinite;
 }
@@ -219,7 +219,7 @@
 .ringOrbitB {
   position: absolute;
   inset: 0;
-  border: 1px solid var(--gold-border);
+  border: 1px solid var(--blue-border);
   border-radius: 50%;
   animation: orbitB 18s linear infinite;
 }
@@ -227,7 +227,7 @@
 .ringOrbitC {
   position: absolute;
   inset: 0;
-  border: 1px solid var(--gold-border);
+  border: 1px solid var(--blue-border);
   border-radius: 50%;
   animation: orbitC 23s linear infinite;
 }
@@ -263,7 +263,7 @@
   justify-content: center;
   width: 28px;
   height: 44px;
-  border: 1px solid var(--gold-border);
+  border: 1px solid var(--blue-border);
   border-radius: 14px;
 }
 
@@ -271,7 +271,7 @@
   display: block;
   width: 4px;
   height: 8px;
-  background: var(--gold);
+  background: var(--blue);
   border-radius: 2px;
   animation: scrollBounce 1.8s ease-in-out infinite;
 }

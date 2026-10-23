@@ -1,9 +1,10 @@
 /* ===== DESIGN TOKENS ===== */
 :root {
-  --gold: #e8a020;
-  --gold-light: #f5c56a;
-  --gold-dim: rgba(232, 160, 32, 0.15);
-  --gold-border: rgba(232, 160, 32, 0.3);
+  --blue: #0d39f9;
+  --blue-hover: #3a5cff;
+  --blue-light: #6f8cff;
+  --blue-dim: rgba(13, 57, 249, 0.15);
+  --blue-border: rgba(13, 57, 249, 0.3);
   --navy: #0d1120;
   --navy-mid: #111827;
   --navy-card: #151d2e;
@@ -70,17 +71,17 @@ button {
   background: var(--navy);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--gold-border);
+  background: var(--blue-border);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--gold);
+  background: var(--blue);
 }
 
 /* ===== SELECTION ===== */
 ::selection {
-  background: var(--gold-dim);
-  color: var(--gold-light);
+  background: var(--blue-dim);
+  color: var(--blue-light);
 }
 
 /* ===== UTILITY CLASSES ===== */
@@ -97,7 +98,7 @@ button {
 .gold-line {
   width: 60px;
   height: 2px;
-  background: linear-gradient(90deg, var(--gold), transparent);
+  background: linear-gradient(90deg, var(--blue), transparent);
   margin: 1rem 0 2rem;
 }
 
@@ -128,8 +129,8 @@ button {
 }
 
 @keyframes pulse-gold {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(232, 160, 32, 0.4); }
-  50% { box-shadow: 0 0 20px 6px rgba(232, 160, 32, 0.1); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(13, 57, 249, 0.4); }
+  50% { box-shadow: 0 0 20px 6px rgba(13, 57, 249, 0.1); }
 }
 
 .animate-up {
