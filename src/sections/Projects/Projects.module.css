@@ -138,6 +138,14 @@
   margin-top: 0.5rem;
 }
 
+.todo {
+  font-size: 0.75rem;
+  color: var(--blue-light);
+  border: 1px dashed var(--blue-border);
+  border-radius: 4px;
+  padding: 0.4rem 0.65rem;
+}
+
 .tag {
   font-size: 0.72rem;
   letter-spacing: 0.1em;
