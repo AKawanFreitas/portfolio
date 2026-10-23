@@ -7,6 +7,7 @@ import Projects from './sections/Projects/Projects'
 import Contact from './sections/Contact/Contact'
 import Footer from './components/Footer/Footer'
 import ScrollToTop from './components/ScrollToTop/ScrollToTop'
+import CommandPalette from './components/CommandPalette/CommandPalette'
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
       </main>
       <Footer />
       <ScrollToTop />
+      <CommandPalette />
     </>
   )
 }

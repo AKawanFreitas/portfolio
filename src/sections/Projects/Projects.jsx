@@ -1,4 +1,4 @@
-import { useState, useId } from 'react'
+import { useState, useId, useEffect } from 'react'
 import { BrandIcon, ExternalIcon } from '../../components/Icons'
 import styles from './Projects.module.css'
 import { PROJECTS } from './projects'
@@ -23,6 +23,14 @@ export default function Projects() {
 
 function ProjectList({ projects, big, initial = null }) {
   const [open, setOpen] = useState(initial)
+
+  // The command palette asks for a project by title
+  useEffect(() => {
+    const onOpen = e => projects.some(p => p.title === e.detail) && setOpen(e.detail)
+    window.addEventListener('project:open', onOpen)
+    return () => window.removeEventListener('project:open', onOpen)
+  }, [projects])
+
   return (
     <ul className={`${styles.list} ${big ? styles.big : ''}`}>
       {projects.map(p => (
@@ -41,7 +49,7 @@ function ProjectList({ projects, big, initial = null }) {
 function ProjectRow({ project, big, open, onToggle }) {
   const id = useId()
   return (
-    <li className={`${styles.row} ${open ? styles.rowOpen : ''}`}>
+    <li data-project={project.title} className={`${styles.row} ${open ? styles.rowOpen : ''}`}>
       <button
         className={styles.head}
         onClick={onToggle}
