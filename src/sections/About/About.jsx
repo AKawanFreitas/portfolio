@@ -1,50 +1,74 @@
-import React from 'react'
+import { useEffect, useRef } from 'react'
 import styles from './About.module.css'
 
+const STATEMENT =
+  'Sou Antonio Kawan, bacharel em Ciência da Computação pela UFC e desenvolvedor júnior na Starke Vision, empresa de IA, automação e sistemas sob medida em Araripina, Pernambuco. Trabalho com desenvolvimento full stack e automações para reduzir retrabalho e colocar processos reais para funcionar, do atendimento no WhatsApp aos sistemas de chão de fábrica.'
+
+const WORDS = STATEMENT.split(' ')
+
+const FACTS = [
+  ['Localização', 'Araripina, Pernambuco'],
+  ['Formação', 'Bacharel em Ciência da Computação, UFC'],
+  ['Atuação', 'Desenvolvedor júnior, Starke Vision'],
+  ['Foco', 'Full Stack & Automações'],
+]
+
 export default function About() {
+  const textRef = useRef(null)
+
+  // Words light up as the paragraph scrolls through the viewport.
+  useEffect(() => {
+    const el = textRef.current
+    const words = [...el.querySelectorAll('[data-w]')]
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      words.forEach(w => { w.style.opacity = 1 })
+      return
+    }
+    let raf = 0
+    const update = () => {
+      raf = 0
+      const r = el.getBoundingClientRect()
+      const vh = window.innerHeight
+      const p = Math.min(1, Math.max(0, (vh * 0.85 - r.top) / (r.height + vh * 0.25)))
+      const lit = p * (words.length + 4)
+      words.forEach((w, i) => {
+        w.style.opacity = Math.min(1, Math.max(0.16, 0.16 + (lit - i) * 0.5)).toFixed(2)
+      })
+    }
+    const onScroll = () => { if (!raf) raf = requestAnimationFrame(update) }
+    update()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll)
+    return () => {
+      cancelAnimationFrame(raf)
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+    }
+  }, [])
+
   return (
-    <section id="sobre" className={`${styles.about} section`}>
+    <section id="sobre" className="section">
       <div className="container">
-        <h2 className="section-title"><span>//</span> sobre</h2>
-        <div className="section-rule" />
+        <h2 className="section-title">// sobre</h2>
 
-        <div className={styles.grid}>
-          <div className={styles.text}>
-            <p>
-              Sou <strong>Antonio Kawan</strong>, bacharel em Ciência da Computação pela UFC e
-              desenvolvedor júnior na <strong>Starke Vision</strong>, empresa de IA, automação e
-              sistemas sob medida em Araripina, Pernambuco.
-            </p>
-            <p>
-              Trabalho com desenvolvimento full stack e automações para reduzir retrabalho e
-              colocar processos reais para funcionar, do atendimento no WhatsApp aos sistemas de
-              chão de fábrica.
-            </p>
+        <p ref={textRef} className={styles.statement}>
+          {WORDS.map((w, i) => (
+            <span key={i} data-w className={styles.word}>{w}{' '}</span>
+          ))}
+        </p>
 
-            <div className={styles.info}>
-              <div className={styles.infoItem}>
-                <span className={styles.infoLabel}>Localização</span>
-                <span className={styles.infoValue}>Araripina, Pernambuco</span>
-              </div>
-              <div className={styles.infoItem}>
-                <span className={styles.infoLabel}>Formação</span>
-                <span className={styles.infoValue}>Bacharel em Ciência da Computação, UFC</span>
-              </div>
-              <div className={styles.infoItem}>
-                <span className={styles.infoLabel}>Atuação</span>
-                <span className={styles.infoValue}>Desenvolvedor júnior, Starke Vision</span>
-              </div>
-              <div className={styles.infoItem}>
-                <span className={styles.infoLabel}>Disponibilidade</span>
-                <span className={styles.infoValue}>Aberto a oportunidades</span>
-              </div>
-              <div className={styles.infoItem}>
-                <span className={styles.infoLabel}>Foco</span>
-                <span className={styles.infoValue}>Full Stack &amp; Automações</span>
-              </div>
+        <dl className={styles.facts}>
+          {FACTS.map(([k, v]) => (
+            <div key={k} className={styles.fact}>
+              <dt>{k}</dt>
+              <dd>{v}</dd>
             </div>
+          ))}
+          <div className={styles.fact}>
+            <dt>Disponibilidade</dt>
+            <dd className={styles.open}><span className={styles.dot} aria-hidden="true" />Aberto a oportunidades</dd>
           </div>
-        </div>
+        </dl>
       </div>
     </section>
   )

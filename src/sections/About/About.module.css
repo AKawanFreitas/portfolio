@@ -1,73 +1,51 @@
-.about {
-  border-top: 1px solid var(--blue-border);
+.statement {
+  max-width: 28em;
+  font-size: clamp(1.5rem, 3.3vw, 2.6rem);
+  font-weight: 500;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  margin-bottom: clamp(3rem, 7vw, 5.5rem);
 }
 
-.label {
-  font-size: 0.8rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--blue-light);
-  margin-bottom: 0.5rem;
-}
+.word { transition: opacity 0.2s linear; }
 
-.grid {
+.facts {
   display: grid;
-  grid-template-columns: 1fr;
-  max-width: 720px;
-  gap: 5rem;
-  align-items: start;
-  margin-top: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--line);
 }
 
-.text p {
-  color: var(--text-secondary);
-  margin-bottom: 1.2rem;
-  font-size: 1rem;
-  line-height: 1.8;
+.fact {
+  padding: 1.25rem 1.5rem 1.5rem 0;
+  border-bottom: 1px solid var(--line);
 }
 
-.text strong {
-  color: var(--blue-light);
-  font-weight: 600;
+.fact dt {
+  font-size: 0.9rem;
+  color: var(--ink-3);
+  margin-bottom: 0.3rem;
 }
 
-.info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-top: 2rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--blue-border);
+.fact dd {
+  font-size: 1.08rem;
+  font-weight: 500;
+  line-height: 1.4;
 }
 
-.infoItem {
-  display: flex;
-  gap: 1rem;
-  align-items: baseline;
+.open { display: flex; align-items: center; gap: 0.6rem; }
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+  animation: ping 2.8s ease-out infinite;
 }
 
-.infoLabel {
-  font-size: 0.75rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  min-width: 120px;
-}
-
-.infoValue {
-  font-size: 0.95rem;
-  color: var(--text-primary);
-}
-
-/* Stats */
-
-
-
-
-
-@media (max-width: 900px) {
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
+@keyframes ping {
+  0%   { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 55%, transparent); }
+  70%  { box-shadow: 0 0 0 9px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
 }
