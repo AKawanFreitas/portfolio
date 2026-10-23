@@ -1,0 +1,24 @@
+.btn {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  color: var(--ink);
+  transition: border-color 0.3s var(--ease), background 0.3s var(--ease);
+}
+
+.btn:hover {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+.core { transition: fill 0.4s var(--ease); }
+.rays { transform-origin: 12px 12px; transition: transform 0.6s var(--ease), opacity 0.4s var(--ease); }
+
+/* dark: moon-ish (filled core, rays folded away); light: sun (open core, rays out) */
+:global([data-theme='dark']) .core { fill: currentColor; }
+:global([data-theme='dark']) .rays { opacity: 0; transform: rotate(-90deg) scale(0.6); }
+:global([data-theme='light']) .core { fill: transparent; }
+:global([data-theme='light']) .rays { opacity: 1; transform: none; }
