@@ -110,3 +110,17 @@
 .links a:hover { color: var(--accent); border-color: var(--accent); }
 
 .rowOpen .panelInner { padding-bottom: 0.25rem; }
+
+/* stack preview on closed featured rows, so the list can be scanned without opening */
+.peek {
+  margin-left: auto;
+  font-size: 0.95rem;
+  color: var(--ink-3);
+  text-align: right;
+  transition: opacity 0.3s var(--ease);
+}
+.rowOpen .peek { opacity: 0; }
+
+@media (max-width: 820px) {
+  .peek { display: none; }
+}

@@ -29,6 +29,7 @@ function ProjectList({ projects, big, initial = null }) {
         <ProjectRow
           key={p.title}
           project={p}
+          big={big}
           open={open === p.title}
           onToggle={() => setOpen(open === p.title ? null : p.title)}
         />
@@ -37,7 +38,7 @@ function ProjectList({ projects, big, initial = null }) {
   )
 }
 
-function ProjectRow({ project, open, onToggle }) {
+function ProjectRow({ project, big, open, onToggle }) {
   const id = useId()
   return (
     <li className={`${styles.row} ${open ? styles.rowOpen : ''}`}>
@@ -48,6 +49,9 @@ function ProjectRow({ project, open, onToggle }) {
         aria-controls={id}
       >
         <span className={styles.title}>{project.title}</span>
+        {big && project.tags.length > 0 && (
+          <span className={styles.peek} aria-hidden="true">{project.tags.slice(0, 3).join(', ')}</span>
+        )}
         <span className={styles.plus} aria-hidden="true" />
       </button>
       <div
