@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import useActiveSection from '../../hooks/useActiveSection'
+import ThemeToggle from '../ThemeToggle/ThemeToggle'
 import styles from './Navbar.module.css'
 
 const NAV_LINKS = [
@@ -8,147 +9,73 @@ const NAV_LINKS = [
   { label: 'Projetos', href: '#projetos' },
   { label: 'Contato', href: '#contato' },
 ]
-
-const FULL_NAME = 'Antonio Kawan'
-
-function ColoredText({ text }) {
-  return (
-    <>
-      {text.split('').map((char, i) => (
-        <span key={i} className={/[AK]/.test(char) ? styles.charAccent : styles.charNormal}>
-          {char}
-        </span>
-      ))}
-    </>
-  )
-}
+const SECTION_IDS = NAV_LINKS.map(l => l.href.slice(1))
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
-  const [hidden, setHidden] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
-  const lastScrollY = useRef(0)
-  const activeSection = useActiveSection(['sobre', 'habilidades', 'projetos', 'contato'])
-  const [logoText, setLogoText] = useState('AK')
-  const [blinking, setBlinking] = useState(false)
-  const animRef = useRef(null)
-  const runRef = useRef(null)
-
-  const runAnimation = () => {
-    if (animRef.current) animRef.current()
-
-    const timers = []
-    let active = true
-
-    const after = (fn, delay) => {
-      const t = setTimeout(() => { if (active) fn() }, delay)
-      timers.push(t)
-    }
-
-    animRef.current = () => {
-      active = false
-      timers.forEach(clearTimeout)
-    }
-
-    setBlinking(true)
-    after(() => {
-      setBlinking(false)
-      setLogoText('')
-      let i = 0
-
-      const typeNext = () => {
-        i++
-        setLogoText(FULL_NAME.slice(0, i))
-        if (i < FULL_NAME.length) {
-          after(typeNext, 65)
-        } else {
-          after(() => {
-            const deleteNext = () => {
-              i--
-              if (i <= 2) {
-                setLogoText('AK')
-                after(() => runRef.current(), 800)
-              } else {
-                setLogoText(FULL_NAME.slice(0, i))
-                after(deleteNext, 40)
-              }
-            }
-            after(deleteNext, 40)
-          }, 2000)
-        }
-      }
-      after(typeNext, 65)
-    }, 500)
-  }
-
-  runRef.current = runAnimation
+  const active = useActiveSection(SECTION_IDS)
 
   useEffect(() => {
-    const t = setTimeout(() => runRef.current(), 800)
+    const onScroll = () => setScrolled(window.scrollY > 24)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : ''
+    const onKey = e => e.key === 'Escape' && setMenuOpen(false)
+    window.addEventListener('keydown', onKey)
     return () => {
-      clearTimeout(t)
-      if (animRef.current) animRef.current()
+      document.body.style.overflow = ''
+      window.removeEventListener('keydown', onKey)
     }
-  }, [])
+  }, [menuOpen])
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const y = window.scrollY
-      setScrolled(y > 50)
-      if (window.innerWidth <= 768) {
-        setHidden(y > lastScrollY.current && y > 80)
-      }
-      lastScrollY.current = y
-    }
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  const handleNavClick = () => setMenuOpen(false)
+  const close = () => setMenuOpen(false)
 
   return (
-    <header className={`${styles.header} ${scrolled ? styles.scrolled : ''} ${hidden ? styles.hidden : ''}`}>
-      <nav className={`${styles.nav} container`}>
-        <a href="#hero" className={styles.logo} onMouseEnter={() => runRef.current()}>
-          <img src="/brand/avatar-dark.png" alt="Logo Antonio Kawan" className={styles.logoImg} />
-          <span className={`${styles.logoText} ${blinking ? styles.logoTextBlink : ''}`}>
-            <ColoredText text={logoText} />
-          </span>
+    <header className={`${styles.header} ${scrolled || menuOpen ? styles.scrolled : ''}`}>
+      <nav className={`${styles.nav} container`} aria-label="Principal">
+        <a href="#hero" className={styles.logo} onClick={close} aria-label="Antonio Kawan, início">
+          <img src="/brand/avatar-dark.png" alt="" className={`${styles.mark} ${styles.markDark}`} />
+          <img src="/brand/avatar-light.png" alt="" className={`${styles.mark} ${styles.markLight}`} />
         </a>
 
-        <ul className={`${styles.links} ${menuOpen ? styles.open : ''}`}>
+        <ul id="menu" className={`${styles.links} ${menuOpen ? styles.open : ''}`}>
           {NAV_LINKS.map(({ label, href }) => (
             <li key={href}>
               <a
                 href={href}
-                className={`${styles.link} ${activeSection === href.slice(1) ? styles.active : ''}`}
-                onClick={handleNavClick}
+                className={`${styles.link} ${active === href.slice(1) ? styles.active : ''}`}
+                aria-current={active === href.slice(1) ? 'true' : undefined}
+                onClick={close}
               >
                 {label}
               </a>
             </li>
           ))}
-          <li>
-            <a
-              href="/Antonio Kawan - Currículo.pdf"
-              download
-              className={styles.cvBtn}
-              onClick={handleNavClick}
-            >
-              Download CV
+          <li className={styles.cvItem}>
+            <a href="/Antonio Kawan - Currículo.pdf" download className={styles.cv} onClick={close}>
+              Baixar currículo
             </a>
           </li>
         </ul>
 
-        <button
-          className={`${styles.burger} ${menuOpen ? styles.burgerOpen : ''}`}
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-        >
-          <span />
-          <span />
-          <span />
-        </button>
+        <div className={styles.tools}>
+          <ThemeToggle />
+          <button
+            className={`${styles.burger} ${menuOpen ? styles.burgerOpen : ''}`}
+            onClick={() => setMenuOpen(o => !o)}
+            aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
+            aria-expanded={menuOpen}
+            aria-controls="menu"
+          >
+            <span />
+            <span />
+          </button>
+        </div>
       </nav>
     </header>
   )
