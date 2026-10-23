@@ -192,8 +192,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 400px;
-  height: 300px;
+  width: 340px;
+  height: auto;
   object-fit: contain;
   filter: drop-shadow(0 0 30px rgba(13, 57, 249, 0.4));
   animation: pulse-gold 4s ease-in-out infinite;
@@ -296,7 +296,7 @@
   .socials    { justify-content: center; }
   .right      { order: -1; margin-top: 1.5rem; }
   .logoWrapper { width: 200px; height: 200px; }
-  .logo       { width: 160px; height: 160px; }
+  .logo       { width: 170px; height: auto; }
 
   .cvLink {
     display: flex;
@@ -310,7 +310,7 @@
   .content    { padding-top: 5rem; gap: 1.8rem; }
   .right      { margin-top: 1rem; }
   .logoWrapper { width: 260px; height: 180px; }
-  .logo       { width: 220px; height: 180px; }
+  .logo       { width: 230px; height: auto; }
   .name       { font-size: clamp(3.2rem, 13vw, 4.5rem); }
   .role       { font-size: 1rem; margin-bottom: 1.4rem; }
   .description { font-size: 1rem; line-height: 1.8; margin-bottom: 1.8rem; }

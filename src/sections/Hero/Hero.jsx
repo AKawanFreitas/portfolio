@@ -48,7 +48,7 @@ export default function Hero() {
 
         <div className={styles.right}>
           <div className={styles.logoWrapper}>
-            <img src="/logo.png" alt="Antonio Kawan logo" className={styles.logo} />
+            <img src="/brand/wordmark-dark.png" alt="kawan.dev" className={styles.logo} />
             <div className={styles.ring} aria-hidden="true" />
             <div className={styles.ringReverse} aria-hidden="true" />
           </div>
