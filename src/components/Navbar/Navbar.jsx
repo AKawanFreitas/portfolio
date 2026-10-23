@@ -110,7 +110,7 @@ export default function Navbar() {
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''} ${hidden ? styles.hidden : ''}`}>
       <nav className={`${styles.nav} container`}>
         <a href="#hero" className={styles.logo} onMouseEnter={() => runRef.current()}>
-          <img src="/logo-icon.png" alt="Logo Antonio Kawan" className={styles.logoImg} />
+          <img src="/brand/avatar-dark.png" alt="Logo Antonio Kawan" className={styles.logoImg} />
           <span className={`${styles.logoText} ${blinking ? styles.logoTextBlink : ''}`}>
             <ColoredText text={logoText} />
           </span>
