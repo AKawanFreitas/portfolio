@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import useActiveSection from '../../hooks/useActiveSection'
 import ThemeToggle from '../ThemeToggle/ThemeToggle'
+import { openPalette } from '../CommandPalette/CommandPalette'
 import styles from './Navbar.module.css'
 
 const NAV_LINKS = [
@@ -15,9 +16,14 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const active = useActiveSection(SECTION_IDS)
+  const progressRef = useRef(null)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24)
+    const onScroll = () => {
+      setScrolled(window.scrollY > 24)
+      const max = document.documentElement.scrollHeight - window.innerHeight
+      progressRef.current.style.transform = `scaleX(${max > 0 ? window.scrollY / max : 0})`
+    }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
@@ -64,6 +70,9 @@ export default function Navbar() {
         </ul>
 
         <div className={styles.tools}>
+          <button className={styles.search} onClick={openPalette} aria-label="Buscar no site" aria-keyshortcuts="/ Control+K">
+            Buscar <kbd>/</kbd>
+          </button>
           <ThemeToggle />
           <button
             className={`${styles.burger} ${menuOpen ? styles.burgerOpen : ''}`}
@@ -77,6 +86,7 @@ export default function Navbar() {
           </button>
         </div>
       </nav>
+      <span ref={progressRef} className={styles.progress} aria-hidden="true" />
     </header>
   )
 }
