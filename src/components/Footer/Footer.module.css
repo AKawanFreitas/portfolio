@@ -19,10 +19,9 @@
 }
 
 .logoImg {
-  width: 28px;
-  height: 28px;
+  height: 36px;
+  width: auto;
   object-fit: contain;
-  filter: drop-shadow(0 0 4px rgba(13, 57, 249, 0.4));
 }
 
 .logoText {
