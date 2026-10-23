@@ -118,7 +118,10 @@ export default function Hero() {
           </div>
         </div>
 
-        <p className={styles.tagline}>// building things that work</p>
+        <div className={styles.meta}>
+          <p className={styles.tagline}>// building things that work</p>
+          <p className={styles.hint}>Aperte <kbd>/</kbd> para buscar seções, projetos e contatos</p>
+        </div>
       </div>
     </section>
   )

@@ -91,11 +91,42 @@
 }
 .cv:hover { color: var(--accent); }
 
-.tagline {
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem 2rem;
   margin-top: 1.5rem;
+}
+
+.tagline {
   font-family: var(--font-mono);
   font-size: 0.85rem;
   color: var(--ink-3);
+}
+
+.hint {
+  font-size: 0.9rem;
+  color: var(--ink-3);
+}
+
+.hint kbd {
+  display: inline-grid;
+  place-items: center;
+  width: 1.6em;
+  height: 1.6em;
+  margin: 0 0.15em;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--on-brand);
+  background: var(--brand);
+  border-radius: 50%;
+}
+
+/* the shortcut only helps where there is a keyboard and a pointer */
+@media (hover: none) {
+  .hint { display: none; }
 }
 
 @media (max-width: 1024px) {
