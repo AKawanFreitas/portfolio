@@ -1,4 +1,3 @@
-import styles from './Skills.module.css'
 import {
   SiFigma, SiJavascript, SiTypescript, SiNodedotjs, SiReact, SiPython,
   SiN8N, SiHtml5, SiCss, SiRedis, SiTailwindcss,
@@ -7,46 +6,52 @@ import {
 } from 'react-icons/si'
 import { MdBrush } from 'react-icons/md'
 import { TbServer } from 'react-icons/tb'
+import styles from './Skills.module.css'
 
-const SKILLS = [
-  { name: 'HTML',                        Icon: SiHtml5 },
-  { name: 'CSS',                         Icon: SiCss },
-  { name: 'JavaScript',                  Icon: SiJavascript },
-  { name: 'TypeScript',                  Icon: SiTypescript },
-  { name: 'React.js',                    Icon: SiReact },
-  { name: 'Tailwind CSS',                Icon: SiTailwindcss },
-  { name: 'Next.js',                     Icon: SiNextdotjs },
-  { name: 'Node.js',                     Icon: SiNodedotjs },
-  { name: 'NestJS',                      Icon: SiNestjs },
-  { name: 'Python',                      Icon: SiPython },
-  { name: 'PostgreSQL',                  Icon: SiPostgresql },
-  { name: 'Redis',                       Icon: SiRedis },
-  { name: 'Docker',                      Icon: SiDocker },
-  { name: 'Git',                         Icon: SiGit },
-  { name: 'GitHub',                      Icon: SiGithub },
-  { name: 'Figma',                       Icon: SiFigma },
-  { name: 'UI/UX',                       Icon: MdBrush },
-  { name: 'WordPress',                   Icon: SiWordpress },
-  { name: 'Chatwoot',                    Icon: SiChatwoot },
-  { name: 'Evolution API',               Icon: SiWhatsapp },
-  { name: 'Easypanel',                   Icon: TbServer },
-  { name: 'N8N',                         Icon: SiN8N },
+const GROUPS = [
+  {
+    title: 'Front-end e design',
+    items: [
+      ['HTML', SiHtml5], ['CSS', SiCss], ['JavaScript', SiJavascript], ['TypeScript', SiTypescript],
+      ['React.js', SiReact], ['Next.js', SiNextdotjs], ['Tailwind CSS', SiTailwindcss],
+      ['Figma', SiFigma], ['UI/UX', MdBrush], ['WordPress', SiWordpress],
+    ],
+  },
+  {
+    title: 'Back-end e dados',
+    items: [
+      ['Node.js', SiNodedotjs], ['NestJS', SiNestjs], ['Python', SiPython],
+      ['PostgreSQL', SiPostgresql], ['Redis', SiRedis],
+    ],
+  },
+  {
+    title: 'Automação e atendimento',
+    items: [['N8N', SiN8N], ['Evolution API', SiWhatsapp], ['Chatwoot', SiChatwoot]],
+  },
+  {
+    title: 'Infra e versionamento',
+    items: [['Docker', SiDocker], ['Easypanel', TbServer], ['Git', SiGit], ['GitHub', SiGithub]],
+  },
 ]
 
 export default function Skills() {
   return (
-    <section id="habilidades" className={`${styles.skills} section`}>
+    <section id="habilidades" className="section">
       <div className="container">
-        <h2 className="section-title"><span>//</span> habilidades</h2>
-        <div className="section-rule" />
+        <h2 className="section-title">// habilidades</h2>
 
-        <div className={styles.grid}>
-          {SKILLS.map(({ name, Icon }) => (
-            <div key={name} className={styles.card}>
-              <div className={styles.iconWrap}>
-                <Icon size={40} />
-              </div>
-              <span className={styles.name}>{name}</span>
+        <div className={styles.groups}>
+          {GROUPS.map(g => (
+            <div key={g.title} className={styles.group}>
+              <h3 className={styles.groupTitle}>{g.title}</h3>
+              <ul className={styles.items}>
+                {g.items.map(([name, Icon]) => (
+                  <li key={name} className={styles.item}>
+                    <Icon size={22} aria-hidden="true" />
+                    <span>{name}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
