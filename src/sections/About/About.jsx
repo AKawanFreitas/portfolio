@@ -29,7 +29,8 @@ export default function About() {
       raf = 0
       const r = el.getBoundingClientRect()
       const vh = window.innerHeight
-      const p = Math.min(1, Math.max(0, (vh * 0.85 - r.top) / (r.height + vh * 0.25)))
+      // fully lit once the paragraph top reaches 40% of the viewport (where a nav click lands)
+      const p = Math.min(1, Math.max(0, (vh * 0.9 - r.top) / (vh * 0.5)))
       const lit = p * (words.length + 4)
       words.forEach((w, i) => {
         w.style.opacity = Math.min(1, Math.max(0.16, 0.16 + (lit - i) * 0.5)).toFixed(2)
