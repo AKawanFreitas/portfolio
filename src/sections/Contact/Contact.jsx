@@ -24,6 +24,7 @@ function useLocalTime() {
 
 export default function Contact() {
   const [copied, setCopied] = useState(false)
+  const [copies, setCopies] = useState(0)
   const timer = useRef(0)
   const time = useLocalTime()
 
@@ -35,6 +36,7 @@ export default function Contact() {
       return
     }
     setCopied(true)
+    setCopies(n => n + 1)
     clearTimeout(timer.current)
     timer.current = setTimeout(() => setCopied(false), 2200)
   }
@@ -42,7 +44,7 @@ export default function Contact() {
   return (
     <section id="contato" className="section">
       <div className="container">
-        <h2 className="section-title">// contato</h2>
+        <h2 className="section-title"><span aria-hidden="true">// </span>contato</h2>
 
         <p className={styles.intro}>
           Estou aberto a novas oportunidades, colaborações ou apenas uma boa conversa sobre
@@ -54,7 +56,12 @@ export default function Contact() {
           onClick={copy}
           aria-label={`Copiar e-mail ${EMAIL}`}
         >
-          <span className={styles.address}>{EMAIL}</span>
+          {/* remounted on every copy so the confirmation wave plays again */}
+          <span key={copies} className={styles.address}>
+            {EMAIL.split('').map((ch, i) => (
+              <span key={i} className={styles.char} style={{ '--i': i }}>{ch}</span>
+            ))}
+          </span>
           <span className={styles.hint}>{copied ? 'E-mail copiado' : 'Clique para copiar'}</span>
         </button>
         <p className={styles.sr} role="status">{copied ? 'E-mail copiado' : ''}</p>

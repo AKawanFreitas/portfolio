@@ -20,6 +20,15 @@
 .email:hover .address,
 .copied .address { background-size: 100% 3px; color: var(--accent); }
 
+/* Copy confirmation: a wave of weight runs through the address, like the hero name */
+.char { display: inline-block; }
+.copied .char { animation: wave 0.8s var(--ease) calc(var(--i) * 22ms); }
+
+@keyframes wave {
+  0%, 100% { font-variation-settings: 'wght' 600, 'wdth' 100; transform: none; }
+  45% { font-variation-settings: 'wght' 800, 'wdth' 86; transform: translateY(-0.07em); }
+}
+
 .hint {
   display: block;
   margin-top: 0.6rem;
