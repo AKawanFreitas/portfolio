@@ -62,6 +62,14 @@ export default function CommandPalette() {
     return commands.filter(c => `${c.group} ${c.label}`.toLowerCase().includes(q))
   }, [commands, query])
 
+  // consecutive results that share a group, keeping each option's flat index for the keyboard
+  const groups = useMemo(() => results.reduce((acc, cmd, i) => {
+    const last = acc[acc.length - 1]
+    if (last && last.name === cmd.group) last.items.push({ cmd, i })
+    else acc.push({ name: cmd.group, items: [{ cmd, i }] })
+    return acc
+  }, []), [results])
+
   const close = () => { setIsOpen(false); lastFocus.current?.focus?.() }
   const run = cmd => { setIsOpen(false); setTimeout(cmd.run, 30) }
 
@@ -123,25 +131,32 @@ export default function CommandPalette() {
               autoComplete="off"
               spellCheck="false"
             />
-            <ul id="palette-list" ref={listRef} className={styles.list} role="listbox">
-              {results.length === 0 && <li className={styles.empty}>Nada encontrado para "{query}". Tente o nome de uma seção ou projeto.</li>}
-              {results.map((c, i) => (
-                <li key={c.group + c.label}>
-                  {(i === 0 || results[i - 1].group !== c.group) && <p className={styles.group}>{c.group}</p>}
-                  <div
-                    id={`cmd-${i}`}
-                    role="option"
-                    aria-selected={i === index}
-                    className={`${styles.item} ${i === index ? styles.active : ''}`}
-                    onMouseMove={() => setIndex(i)}
-                    onClick={() => run(c)}
-                  >
-                    <span>{c.label}</span>
-                    {c.hint && <span className={styles.hint}>{c.hint}</span>}
-                  </div>
-                </li>
+            <div id="palette-list" ref={listRef} className={styles.list} role="listbox" aria-label="Resultados">
+              {groups.map(g => (
+                <div key={g.name} role="group" aria-label={g.name}>
+                  <div className={styles.group} aria-hidden="true">{g.name}</div>
+                  {g.items.map(({ cmd, i }) => (
+                    <div
+                      key={cmd.label}
+                      id={`cmd-${i}`}
+                      role="option"
+                      aria-selected={i === index}
+                      className={`${styles.item} ${i === index ? styles.active : ''}`}
+                      onMouseMove={() => setIndex(i)}
+                      onClick={() => run(cmd)}
+                    >
+                      <span>{cmd.label}</span>
+                      {cmd.hint && <span className={styles.hint}>{cmd.hint}</span>}
+                    </div>
+                  ))}
+                </div>
               ))}
-            </ul>
+            </div>
+            {results.length === 0 && (
+              <p className={styles.empty} role="status">
+                Nada encontrado para "{query}". Tente o nome de uma seção, projeto ou rede.
+              </p>
+            )}
             <p className={styles.keys}>↑ ↓ para navegar, Enter para abrir, Esc para fechar</p>
           </div>
         </div>
