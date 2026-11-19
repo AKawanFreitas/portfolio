@@ -22,11 +22,13 @@
   gap: 1.5rem;
 }
 
-.logo { display: block; width: 40px; height: 40px; flex-shrink: 0; }
-.mark { width: 40px; height: 40px; border-radius: 6px; }
-.markLight { display: none; }
-:global([data-theme='light']) .markDark { display: none; }
-:global([data-theme='light']) .markLight { display: block; }
+.logo {
+  display: block;
+  flex-shrink: 0;
+  padding: 6px 4px;
+  color: var(--ink);
+}
+.mark { height: 26px; width: auto; }
 
 .links {
   display: flex;

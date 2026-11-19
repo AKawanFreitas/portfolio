@@ -6,7 +6,6 @@ import Skills from './sections/Skills/Skills'
 import Projects from './sections/Projects/Projects'
 import Contact from './sections/Contact/Contact'
 import Footer from './components/Footer/Footer'
-import ScrollToTop from './components/ScrollToTop/ScrollToTop'
 import CommandPalette from './components/CommandPalette/CommandPalette'
 
 export default function App() {
@@ -21,7 +20,6 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
-      <ScrollToTop />
       <CommandPalette />
     </>
   )

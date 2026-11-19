@@ -1,4 +1,25 @@
-.footer { border-top: 1px solid var(--line); padding: 2rem 0; }
+.footer {
+  border-top: 1px solid var(--line);
+  padding: clamp(2rem, 4vw, 3rem) 0 2rem;
+}
+
+.close {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.25rem;
+  margin-bottom: clamp(2.5rem, 6vw, 4rem);
+  color: var(--ink-2);
+}
+
+.tag { height: clamp(5rem, 15vw, 10rem); width: auto; }
+
+.closeLabel {
+  padding-bottom: 0.4em;
+  font-size: 1.05rem;
+  transition: color 0.25s var(--ease);
+}
+.close:hover .closeLabel,
+.close:focus-visible .closeLabel { color: var(--accent); }
 
 .inner {
   display: flex;
@@ -6,6 +27,8 @@
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 1rem 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
 }
 
 .logo img { height: 34px; width: auto; }

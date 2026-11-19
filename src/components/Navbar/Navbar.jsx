@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import useActiveSection from '../../hooks/useActiveSection'
 import ThemeToggle from '../ThemeToggle/ThemeToggle'
+import BrandMark from '../BrandMark/BrandMark'
 import { openPalette } from '../CommandPalette/CommandPalette'
 import styles from './Navbar.module.css'
 
@@ -45,8 +46,7 @@ export default function Navbar() {
     <header className={`${styles.header} ${scrolled || menuOpen ? styles.scrolled : ''}`}>
       <nav className={`${styles.nav} container`} aria-label="Principal">
         <a href="#hero" className={styles.logo} onClick={close} aria-label="Antonio Kawan, início">
-          <img src="/brand/avatar-dark.png" alt="" className={`${styles.mark} ${styles.markDark}`} />
-          <img src="/brand/avatar-light.png" alt="" className={`${styles.mark} ${styles.markLight}`} />
+          <BrandMark intro className={styles.mark} />
         </a>
 
         <ul id="menu" className={`${styles.links} ${menuOpen ? styles.open : ''}`}>

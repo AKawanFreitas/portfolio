@@ -1,0 +1,32 @@
+.mark {
+  display: block;
+  overflow: visible;
+}
+
+.ink { fill: currentColor; }
+.brand { fill: var(--brand); }
+
+.bar,
+.lt,
+.slash,
+.gt {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.5s var(--ease);
+}
+
+/* Hovering or focusing the link or button that holds the mark opens the tag a little */
+:global(:is(a, button):is(:hover, :focus-visible)) > .mark .lt { transform: translateX(-9px); }
+:global(:is(a, button):is(:hover, :focus-visible)) > .mark .slash { transform: rotate(14deg); }
+:global(:is(a, button):is(:hover, :focus-visible)) > .mark .gt { transform: translateX(9px); }
+
+/* Page-load assembly. `backwards` so hover transforms work once it ends. */
+.intro .bar { transform-origin: 50% 100%; animation: grow 0.55s var(--ease) 0.05s backwards; }
+.intro .lt { animation: slideLeft 0.6s var(--ease) 0.18s backwards; }
+.intro .slash { animation: swing 0.7s var(--ease) 0.3s backwards; }
+.intro .gt { animation: slideRight 0.6s var(--ease) 0.42s backwards; }
+
+@keyframes grow { from { transform: scaleY(0); } }
+@keyframes slideLeft { from { transform: translateX(40px); opacity: 0; } }
+@keyframes slideRight { from { transform: translateX(-40px); opacity: 0; } }
+@keyframes swing { from { transform: rotate(-60deg) scale(0.4); opacity: 0; } }
