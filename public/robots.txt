@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://portif-lio-dun-nine.vercel.app/sitemap.xml

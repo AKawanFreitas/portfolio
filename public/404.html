@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Página não encontrada, Antonio Kawan</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <script src="/theme.js"></script>
+    <style>
+      @font-face {
+        font-family: 'Bricolage Grotesque';
+        font-weight: 200 800;
+        font-stretch: 75% 100%;
+        font-display: swap;
+        src: url('/fonts/bricolage-grotesque-v9-latin.woff2') format('woff2');
+      }
+      :root, :root[data-theme='dark'] {
+        color-scheme: dark;
+        --bg: #050507; --ink: #f2f2ee; --ink-2: #b1b2bc; --brand: #0d39f9;
+      }
+      :root[data-theme='light'] {
+        color-scheme: light;
+        --bg: #f3f3ef; --ink: #0a0b10; --ink-2: #444654;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        min-height: 100svh;
+        display: grid;
+        place-items: center;
+        padding: 2rem 1.25rem;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: 'Bricolage Grotesque', 'Helvetica Neue', Arial, sans-serif;
+        line-height: 1.6;
+      }
+      main { width: 100%; max-width: 36rem; }
+      /* an empty element: the tag opens and closes with nothing inside */
+      svg { display: block; height: clamp(4.5rem, 18vw, 7.5rem); width: auto; margin-bottom: 2.5rem; overflow: visible; }
+      .ink { fill: var(--ink); }
+      .brand { fill: var(--brand); }
+      h1 { font-size: clamp(2rem, 7vw, 3.2rem); font-weight: 650; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 0.75rem; }
+      p { color: var(--ink-2); max-width: 40ch; margin-bottom: 2rem; }
+      a {
+        display: inline-block;
+        padding: 0.8rem 1.4rem;
+        font-weight: 500;
+        color: #fff;
+        background: var(--brand);
+        border-radius: 999px;
+        text-decoration: none;
+      }
+      a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <svg viewBox="11 11 260 83" aria-hidden="true">
+        <rect class="ink" x="11" y="11" width="13" height="82" />
+        <polygon class="ink" points="69,31 88.5,31 59,58 88.5,85 69,85 39.6,58" />
+        <polygon class="brand" points="211.4,23 222.6,23 195.6,94 184.1,94" />
+        <polygon class="brand" points="237,37 271,54 271,64 237,81 237,70 259,59 237,48" />
+      </svg>
+      <h1>Essa página não existe.</h1>
+      <p>O endereço pode ter mudado ou foi digitado errado. Tudo o que tem aqui está na página inicial.</p>
+      <a href="/">Voltar para o início</a>
+    </main>
+  </body>
+</html>
