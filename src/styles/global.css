@@ -152,3 +152,21 @@ button { cursor: pointer; border: none; background: none; font: inherit; color: 
   ::view-transition-old(*),
   ::view-transition-new(*) { animation: none !important; }
 }
+
+/* ===== SKIP LINK ===== */
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 300;
+  padding: 0.7rem 1.1rem;
+  font-weight: 600;
+  color: var(--on-brand);
+  background: var(--brand);
+  border-radius: 999px;
+  transform: translateY(-200%);
+  transition: transform 0.3s var(--ease);
+}
+.skip-link:focus { transform: none; }
+
+main:focus { outline: none; }

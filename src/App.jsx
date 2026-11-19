@@ -11,8 +11,9 @@ import CommandPalette from './components/CommandPalette/CommandPalette'
 export default function App() {
   return (
     <>
+      <a href="#conteudo" className="skip-link">Pular para o conteúdo</a>
       <Navbar />
-      <main>
+      <main id="conteudo" tabIndex={-1}>
         <Hero />
         <About />
         <Skills />

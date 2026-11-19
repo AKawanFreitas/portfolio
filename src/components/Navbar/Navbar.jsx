@@ -31,11 +31,15 @@ export default function Navbar() {
   }, [])
 
   useEffect(() => {
+    // while the mobile menu covers the page, the page behind it can't be scrolled or tabbed into
+    const behind = [document.querySelector('main'), document.querySelector('footer')]
     document.body.style.overflow = menuOpen ? 'hidden' : ''
+    behind.forEach(el => el?.toggleAttribute('inert', menuOpen))
     const onKey = e => e.key === 'Escape' && setMenuOpen(false)
     window.addEventListener('keydown', onKey)
     return () => {
       document.body.style.overflow = ''
+      behind.forEach(el => el?.removeAttribute('inert'))
       window.removeEventListener('keydown', onKey)
     }
   }, [menuOpen])
