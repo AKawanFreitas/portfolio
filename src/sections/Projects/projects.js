@@ -121,3 +121,14 @@ export const PROJECTS = [
     featured: false,
   },
 ]
+
+// Skill names that are written differently in the project tags
+const TAG_FOR_SKILL = { 'React.js': 'React' }
+
+export function tagMatchesSkill(tag, skill) {
+  return tag.toLowerCase() === (TAG_FOR_SKILL[skill] || skill).toLowerCase()
+}
+
+export function usesSkill(project, skill) {
+  return project.tags.some(t => tagMatchesSkill(t, skill))
+}

@@ -21,6 +21,13 @@
   gap: 0.6rem;
 }
 
+.lead {
+  max-width: 52ch;
+  margin: -1.5rem 0 2rem;
+  color: var(--ink-2);
+}
+
+/* Plain skill: no project on this site uses it yet, so it is just text */
 .item {
   display: inline-flex;
   align-items: center;
@@ -28,21 +35,48 @@
   padding: 0.55rem 1.05rem 0.55rem 0.85rem;
   font-size: clamp(1rem, 1.6vw, 1.2rem);
   font-weight: 500;
-  border: 1px solid var(--line-strong);
+  color: var(--ink-2);
+  border: 1px solid transparent;
   border-radius: 999px;
-  cursor: default;
-  transition: background 0.3s var(--ease), color 0.3s var(--ease), border-color 0.3s var(--ease), transform 0.4s var(--ease);
 }
 
 .item svg { color: var(--ink-3); transition: color 0.3s var(--ease), transform 0.5s var(--ease); }
 
-.item:hover {
+/* Linked skill: a button that filters the projects list */
+.linked {
+  color: var(--ink);
+  border-color: var(--line-strong);
+  transition: background 0.3s var(--ease), color 0.3s var(--ease), border-color 0.3s var(--ease), transform 0.4s var(--ease);
+}
+
+.count {
+  display: grid;
+  place-items: center;
+  min-width: 1.5em;
+  height: 1.5em;
+  padding: 0 0.35em;
+  margin-right: -0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.75em;
+  font-weight: 700;
+  color: var(--on-brand);
+  background: var(--brand);
+  border-radius: 999px;
+  transition: background 0.3s var(--ease), color 0.3s var(--ease);
+}
+
+.linked:hover,
+.linked:focus-visible {
   background: var(--brand);
   border-color: var(--brand);
   color: var(--on-brand);
   transform: translateY(-3px) rotate(-1.5deg);
 }
-.item:hover svg { color: var(--on-brand); transform: rotate(12deg) scale(1.1); }
+.linked:hover svg,
+.linked:focus-visible svg { color: var(--on-brand); transform: rotate(12deg) scale(1.1); }
+.linked:hover .count,
+.linked:focus-visible .count { background: var(--on-brand); color: var(--brand); }
+.linked:active { transform: translateY(0) scale(0.97); }
 
 @media (max-width: 720px) {
   .group { grid-template-columns: 1fr; }
