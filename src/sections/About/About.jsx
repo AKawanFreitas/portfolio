@@ -16,41 +16,44 @@ const FACTS = [
 export default function About() {
   const textRef = useRef(null)
 
-  // Words light up as the paragraph scrolls through the viewport.
+  // Words light up as the paragraph scrolls into reading position. It only ever brightens:
+  // once read, the text stays at full contrast.
   useEffect(() => {
     const el = textRef.current
     const words = [...el.querySelectorAll('[data-w]')]
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      words.forEach(w => { w.style.opacity = 1 })
-      return
-    }
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     let raf = 0
+    let lit = 0
     const update = () => {
       raf = 0
       const r = el.getBoundingClientRect()
       const vh = window.innerHeight
       // fully lit once the paragraph top reaches 40% of the viewport (where a nav click lands)
       const p = Math.min(1, Math.max(0, (vh * 0.9 - r.top) / (vh * 0.5)))
-      const lit = p * (words.length + 4)
+      lit = Math.max(lit, p * (words.length + 4))
       words.forEach((w, i) => {
         w.style.opacity = Math.min(1, Math.max(0.16, 0.16 + (lit - i) * 0.5)).toFixed(2)
       })
+      if (lit >= words.length + 4) stop()
     }
     const onScroll = () => { if (!raf) raf = requestAnimationFrame(update) }
+    const stop = () => {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+    }
     update()
     window.addEventListener('scroll', onScroll, { passive: true })
     window.addEventListener('resize', onScroll)
     return () => {
       cancelAnimationFrame(raf)
-      window.removeEventListener('scroll', onScroll)
-      window.removeEventListener('resize', onScroll)
+      stop()
     }
   }, [])
 
   return (
     <section id="sobre" className="section">
       <div className="container">
-        <h2 className="section-title">// sobre</h2>
+        <h2 className="section-title"><span aria-hidden="true">// </span>sobre</h2>
 
         <p ref={textRef} className={styles.statement}>
           {WORDS.map((w, i) => (
