@@ -7,10 +7,12 @@ import Projects from './sections/Projects/Projects'
 import Contact from './sections/Contact/Contact'
 import Footer from './components/Footer/Footer'
 import CommandPalette from './components/CommandPalette/CommandPalette'
+import Intro from './components/Intro/Intro'
 
 export default function App() {
   return (
     <>
+      <Intro />
       <a href="#conteudo" className="skip-link">Pular para o conteúdo</a>
       <Navbar />
       <main id="conteudo" tabIndex={-1}>
