@@ -15,6 +15,7 @@
   -webkit-mask-image: linear-gradient(to bottom, #000 35%, transparent 100%);
   mask-image: linear-gradient(to bottom, #000 35%, transparent 100%);
   pointer-events: none;
+  animation: fadeIn 1.4s var(--ease) 0.35s backwards;
 }
 
 .content {
@@ -33,9 +34,21 @@
   font-variation-settings: 'wght' 380, 'wdth' 100;
 }
 
-.line { display: block; }
+/* Each line clips its letters so they can rise from the baseline on load */
+.line {
+  display: block;
+  overflow-y: clip;
+  padding: 0.1em 0 0.06em;
+  margin: -0.1em 0 -0.06em;
+}
 .word { display: inline-block; white-space: nowrap; }
-.letter { display: inline-block; }
+.letter {
+  display: inline-block;
+  animation: rise 0.9s var(--ease) calc(0.1s + var(--i) * 0.05s) backwards;
+}
+
+@keyframes rise { from { transform: translateY(110%); } }
+@keyframes fadeIn { from { opacity: 0; } }
 
 .footer {
   display: grid;
@@ -134,5 +147,5 @@
 }
 
 @media (max-width: 600px) {
-  .name { font-size: 22vw; }
+  .name { font-size: 25vw; }
 }
